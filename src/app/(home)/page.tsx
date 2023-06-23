@@ -1,4 +1,5 @@
 'use client';
+import { Button } from '@/components/ui/Button';
 import { api } from '@/utils/api';
 import { NextPage } from 'next';
 import { signIn, signOut, useSession } from 'next-auth/react';
@@ -14,13 +15,21 @@ const Home: NextPage = () => {
 
   return (
     <div className="home_page">
-      <h1 className="">H1 Heading</h1>
+      <h1 className="gradient_text">H1 Heading</h1>
       <h2>H2 Heading</h2>
       <h3>H3 Heading</h3>
       <h4>H4 Heading</h4>
       <h5>H5 Heading</h5>
       <h6>H6 Heading</h6>
       <p>p Heading</p>
+      <div className="bg-red-500 accordion-up w-fit">
+
+      <Button >GET STARTED</Button>
+      <Button variant={'animated'}  >GET STARTED</Button>
+      <Button variant={'ghost'} >GET STARTED</Button>
+      <Button variant={'link'} >GET STARTED</Button>
+      <Button variant={'outline'} borders={'rounded'} >GET STARTED</Button>
+      </div>
       <p className="small">p Heading</p>
       <div className="flex flex-col items-center justify-center gap-4">
         <p className="text-center text-2xl ">

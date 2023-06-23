@@ -28,6 +28,10 @@ export default {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+
+        purpule: 'hsl(var(--purpule))',
+        blue: 'hsl(var(--blue))',
+
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
@@ -71,10 +75,22 @@ export default {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        "slide-linear": {
+          "0%": {
+            transform: "translateX(0px)",
+          },
+          "50%": {
+            transform: "translateX(50px)",
+          },
+          "100%": {
+            transform: "translateX(0px)",
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'slide-linear': 'slide-linear 2s  infinite',
       },
     },
   },

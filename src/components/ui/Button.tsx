@@ -2,31 +2,29 @@ import { cn } from '@/utils/utils';
 import { cva, VariantProps } from 'class-variance-authority';
 import { Loader2 } from 'lucide-react';
 import * as React from 'react';
+import { Icons } from '../Icons';
 
 const buttonVariants = cva(
-  'active:scale-95 inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:opacity-50 dark:focus:ring-slate-400 disabled:pointer-events-none dark:focus:ring-offset-slate-900',
+  'active:scale-95 inline-flex items-center justify-center  font-[15px] h-[45px] py-[10px] font-semibold px-[20px]  disabled:opacity-50 disabled:pointer-events-none',
   {
     variants: {
       variant: {
-        default: 'bg-zinc-900 text-zinc-100 hover:bg-zinc-800',
-        destructive: 'text-white hover:bg-red-600 dark:hover:bg-red-600',
+        default:'bg-gradient-to-r from-blue  to-purpule text-white hover:opacity-90',
         outline:
-          'bg-zinc-100 text-zinc-900 hover:bg-zinc-200 outline outline-1 outline-zinc-300',
-        subtle: 'hover:bg-zinc-200 bg-zinc-100 text-zinc-900',
+          'bg-transparent text-black hover:bg-zinc-200 outline outline-2 outline-purpule hover:text-blue hover:bg-white h-[54px]',
         ghost:
           'bg-transparent hover:bg-zinc-100 text-zinc-800 data-[state=open]:bg-transparent data-[state=open]:bg-transparent',
         link: 'bg-transparent dark:bg-transparent underline-offset-4 hover:underline text-slate-900 dark:text-slate-100 hover:bg-transparent dark:hover:bg-transparent',
+        animated: 'relative bg-gradient-to-r from-blue  to-purpule text-white hover:opacity-90 pr-[80px]',
       },
-      size: {
-        default: 'h-10 py-2 px-4',
-        sm: 'h-9 px-2 rounded-md',
-        xs: 'h-8 px-1.5 rounded-sm',
-        lg: 'h-11 px-8 rounded-md',
+      borders: {
+        default: 'rounded',
+        rounded: 'rounded-full',
       },
     },
     defaultVariants: {
       variant: 'default',
-      size: 'default',
+      borders: 'default',
     },
   }
 );
@@ -37,17 +35,21 @@ export interface ButtonProps
   isLoading?: boolean;
 }
 
+
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, children, variant, isLoading, size, ...props }, ref) => {
+  ({ className, children, variant, isLoading, borders, ...props }, ref) => {
+    console.log(variant)
     return (
       <button
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(buttonVariants({ variant, borders, className }))}
         ref={ref}
         disabled={isLoading}
         {...props}
       >
         {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
         {children}
+        {variant === 'animated' ? <Icons.circle className='h-3 w-3 ml-2 animate-slide-linear ' /> : null}
+        <div className="absolute inset-y-[48%] right-0 mr-8  w-[50px] border border-white h-[1px] "></div>
       </button>
     );
   }

@@ -13,53 +13,6 @@ const poppins = Poppins({
   display: 'swap',
 });
 
-export const metadata: Metadata = {
-  title: {
-    template: `%s | ${siteConfig.title}`,
-    default: siteConfig.name,
-  },
-  description: siteConfig.description,
-  keywords: siteConfig.keywords,
-  category: siteConfig.category,
-  generator: siteConfig.generator,
-  applicationName: siteConfig.name,
-  creator: siteConfig.creator,
-  referrer: 'origin-when-cross-origin',
-  authors: siteConfig.authors,
-  colorScheme: 'normal', // 'normal' | 'light' | 'dark' | 'light dark' | 'dark light' | 'only light'
-  themeColor: siteConfig.themeColor,
-  publisher: siteConfig.publisher,
-  formatDetection: siteConfig.formatDetection,
-  metadataBase: siteConfig.metadataBase,
-  alternates: siteConfig.alternates,
-  manifest: siteConfig.manifest,
-  openGraph: {
-    title: siteConfig.openGraph.title,
-    description: siteConfig.openGraph.description,
-    url: siteConfig.openGraph.url,
-    siteName: siteConfig.openGraph.siteName,
-    locale: siteConfig.openGraph.locale,
-    type: 'website',
-    images: siteConfig.openGraph.images,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: true,
-    googleBot: {
-      index: true,
-      follow: false,
-      noimageindex: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  icons: siteConfig.icons,
-  // twitter: siteConfig.twitter,
-  viewport: siteConfig.viewport,
-  verification: siteConfig.verification,
-};
 
 export default function RootLayout({
   children,
